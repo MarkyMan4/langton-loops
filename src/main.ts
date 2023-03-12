@@ -10,7 +10,7 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 /* end boilerplate */
 
-const cellSize = 10;
+const cellSize = 5;
 const cellsAcross = Math.floor(canvas.width / cellSize);
 const cellsDown = Math.floor(canvas.height / cellSize);
 
@@ -21,16 +21,18 @@ let prevTime = new Date();
 const drawGrid = () => {
     for(let i = 0; i < grid.cells.length; i++) {
         for(let j = 0; j < grid.cells[i].length; j++) {
-            let x = j * cellSize;
-            let y = i * cellSize;
-            let state = grid.cells[i][j];
+            if(grid.cells[i][j].curState !== 0) {
+                let x = j * cellSize;
+                let y = i * cellSize;
+                let state = grid.cells[i][j].curState;
 
-            ctx.beginPath();
-            ctx.rect(x, y, cellSize, cellSize);
-            ctx.fillStyle = states[state.curState];
-            ctx.strokeStyle = '#4d4d4d';
-            ctx.fill();
-            ctx.stroke();
+                ctx.beginPath();
+                ctx.rect(x, y, cellSize, cellSize);
+                ctx.fillStyle = states[state];
+                ctx.strokeStyle = '#4d4d4d';
+                ctx.fill();
+                // ctx.stroke();
+            }
         }
     }
 }
