@@ -10,7 +10,18 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 /* end boilerplate */
 
-const cellSize = 5;
+let cellSize = 5;
+
+if (navigator.userAgent.match(/Android/i)
+         || navigator.userAgent.match(/webOS/i)
+         || navigator.userAgent.match(/iPhone/i)
+         || navigator.userAgent.match(/iPad/i)
+         || navigator.userAgent.match(/iPod/i)
+         || navigator.userAgent.match(/BlackBerry/i)
+         || navigator.userAgent.match(/Windows Phone/i)) {
+            cellSize = 2;
+         }
+
 const cellsAcross = Math.floor(canvas.width / cellSize);
 const cellsDown = Math.floor(canvas.height / cellSize);
 
