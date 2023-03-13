@@ -12,6 +12,7 @@ canvas.height = window.innerHeight;
 
 let cellSize = 5;
 
+// smaller cells on mobile devices
 if (navigator.userAgent.match(/Android/i)
          || navigator.userAgent.match(/webOS/i)
          || navigator.userAgent.match(/iPhone/i)
